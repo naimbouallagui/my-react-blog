@@ -17,9 +17,10 @@ export const ArticleReducer = (state, action) => {
             localStorage.setItem('listeArticles', JSON.stringify(newArticlesState.articles))
             return newArticlesState;
         case 'REMOVE_ARTICLE':
-            const index = state.map((e) => { return e.id; }).indexOf(action.id);
-            state.splice(index, 1);
-            return [...state];
+            const index = state.articles.map((e) => { return e.id; }).indexOf(action.id);
+            const allArticles = [...state.articles]
+            allArticles.splice(index, 1);
+            return {...state, articles: allArticles};
         case 'UPDATE_ARTICLE':
           return state.map(a => {
               if( a.id === action.payload.id) {
