@@ -6,12 +6,12 @@ const AllArticles = () => {
 
     const { stateArticle } = useContext(ArticleContext);
     const { dispatch } = useContext(ArticleContext);
-    
+
 
 
 
     const deleteArticle = (articleId) => {
-        dispatch({ type: "REMOVE_ARTICLE", id:articleId })
+        dispatch({ type: "REMOVE_ARTICLE", id: articleId })
     }
 
     return (
@@ -37,13 +37,13 @@ const AllArticles = () => {
                                 <Link to={`/blog`} className="stretched-link">Continue reading</Link>
                             </div>
                             <div className="col-auto d-none d-lg-block">
-                                <svg className="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+                                <img alt="" src={e.image} width="180px"/>
                             </div>
                         </div>
-                       
-                            <Link to={`/articles/edit`} className="btn btn-sm btn-outline-success mx-2 my-2">Edit</Link>
-                            <button onClick={() => deleteArticle(e.id)} className="btn btn-sm btn-outline-danger mx-2 my-2"> Delete</button>
-                        
+
+                        <Link to={`/articles/edit`} className="btn btn-sm btn-outline-success mx-2 my-2">Edit</Link>
+                        <button onClick={() => deleteArticle(e.id)} className="btn btn-sm btn-outline-danger mx-2 my-2"> Delete</button>
+
                     </div>
 
                 )}

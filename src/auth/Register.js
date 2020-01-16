@@ -13,7 +13,7 @@ const Register = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         dispatch({ type: "REGISTER", user: { username, password } })
-        history.push("/login");
+        history.push("/blog");
 
     }
 
