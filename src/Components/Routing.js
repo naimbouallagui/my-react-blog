@@ -1,5 +1,4 @@
 import React from 'react'
-import { Route } from 'react-router-dom'
 import Register from '../auth/Register'
 import Login from '../auth/Login'
 import AllArticles from '../Pages/AllArticles'
@@ -18,7 +17,7 @@ const allRoutes = [
     }
     ,
     {
-        path: "/articles/edit", exact: true, component: <UpdateArticle />, private: true,
+        path: "/articles/edit/:id", exact: true, component: <UpdateArticle />, private: true,
     },
     {
         path: "/register", exact: true, component: <Register />, private: false,

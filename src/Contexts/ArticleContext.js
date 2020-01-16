@@ -5,10 +5,10 @@ export const ArticleContext = createContext();
 const ArticleContextProvider = (props) => {
   
   const initialState = {articles: [], comments: []}
-  if( localStorage.getItem('listeArticles') ) {
-    initialState.articles= JSON.parse(localStorage.getItem('listeArticles'));
+  if( localStorage.getItem('listArticles') ) {
+    initialState.articles= JSON.parse(localStorage.getItem('listArticles'));
   } else {
-    localStorage.setItem('listeArticles', JSON.stringify([]))
+    localStorage.setItem('listArticles', JSON.stringify([]))
   }
   if (localStorage.getItem('listeComments')) {
     initialState.comments= JSON.parse(localStorage.getItem('listeComments'));

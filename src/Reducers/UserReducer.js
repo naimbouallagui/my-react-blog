@@ -1,4 +1,3 @@
-import { useHistory } from "react-router-dom";
 import uuid from "uuid";
 
 export const UserReducer = (state = {}, action) => {
