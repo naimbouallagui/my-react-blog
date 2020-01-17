@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { ArticleContext } from '../Contexts/ArticleContext';
 import { UserContext } from '../Contexts/UserContext';
+import Editor from '../Components/editor';
 
 
 const AddArticle = () => {
@@ -47,12 +48,14 @@ const AddArticle = () => {
                 <label className="float-left my-3">Content</label>
 
                 <label htmlFor="inputContent" className="sr-only">Content</label>
-                <textarea
+                {/* <textarea
                     onChange={e => setContent(e.target.value)}
                     className="form-control"
                     rows="5"
                     id="inputContent"
-                    defaultValue={content} />
+                    defaultValue={content} /> */}
+                    <Editor handleChange={(d) => setContent(d)} data={content}/>
+
                 <input
                     type="file"
                     id="imageFile"
