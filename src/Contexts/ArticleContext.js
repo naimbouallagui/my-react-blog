@@ -10,10 +10,10 @@ const ArticleContextProvider = (props) => {
   } else {
     localStorage.setItem('listArticles', JSON.stringify([]))
   }
-  if (localStorage.getItem('listeComments')) {
-    initialState.comments= JSON.parse(localStorage.getItem('listeComments'));
+  if (localStorage.getItem('listComments')) {
+    initialState.comments= JSON.parse(localStorage.getItem('listComments'));
   } else {
-    localStorage.setItem('listeComments', JSON.stringify([]))
+    localStorage.setItem('listComments', JSON.stringify([]))
   }
   
   const [stateArticle, dispatch] = useReducer(ArticleReducer, initialState);

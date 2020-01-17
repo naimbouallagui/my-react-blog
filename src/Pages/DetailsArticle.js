@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { ArticleContext } from '../Contexts/ArticleContext'
 import { useParams, useHistory } from 'react-router-dom';
+import CommentArticle from './CommentArticle';
 
 const DetailsArticle = () => {
     const { stateArticle } = useContext(ArticleContext);
@@ -9,6 +10,7 @@ const DetailsArticle = () => {
 
     const article = stateArticle.articles.find(item => item.id === id)
     return (
+        <>
         <div className="jumbotron">
             <h1>{article.title}</h1>
             <img src={article.image} alt="" width="200" />
@@ -18,6 +20,9 @@ const DetailsArticle = () => {
             }} />
             <button className="btn btn-sm  btn-outline-secondary mx-2 my-2" onClick={() => history.goBack()}>Back To List</button>
         </div>
+        <CommentArticle />
+        </>
+
     )
 }
 
