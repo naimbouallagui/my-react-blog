@@ -7,7 +7,7 @@ const AllArticles = () => {
 
     const { stateArticle } = useContext(ArticleContext);
     const { dispatch } = useContext(ArticleContext);
-    dispatch({type: 'ALL_ARTICLES'});
+    dispatch({ type: 'ALL_ARTICLES' });
     const deleteArticle = (articleId) => {
         dispatch({ type: "REMOVE_ARTICLE", id: articleId })
     }
@@ -30,21 +30,25 @@ const AllArticles = () => {
                             <div className="col p-4 d-flex flex-column position-static">
                                 <strong className="d-inline-block mb-2 text-success">New</strong>
                                 <h3 className="mb-0">{e.title}</h3>
-                                <p className="card-text mb-auto">{e.content}</p>
-                                <Link to={`/blog`} className="stretched-link">Continue reading</Link>
+                                <div dangerouslySetInnerHTML={{
+                                    __html:
+                                        e.content
+                                }} />
+                                <Link to={'/articles/' + e.id} className="stretched-link">Continue reading</Link>
                             </div>
                             <div className="col-auto d-none d-lg-block">
-                                <img alt="" src={e.image} width="180px"/>
+                                <img alt="" src={e.image} width="180px" />
                             </div>
                         </div>
 
-                        <Link to={'/articles/edit/'+ e.id} className="btn btn-sm btn-outline-success mx-2 my-2">Edit</Link>
+                        <Link to={'/articles/edit/' + e.id} className="btn btn-sm btn-outline-success mx-2 my-2">Edit</Link>
                         <button onClick={() => deleteArticle(e.id)} className="btn btn-sm btn-outline-danger mx-2 my-2"> Delete</button>
 
                     </div>
+                    // <Article content={e.content} />
 
                 )}
-                
+
             </div>
         </>
     )

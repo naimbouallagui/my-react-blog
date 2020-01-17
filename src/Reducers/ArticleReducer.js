@@ -29,7 +29,7 @@ export const ArticleReducer = (state, action) => {
             const index = articles.map(a => { return a.id}).indexOf(action.article.id);
             articles[index] = action.article;
             localStorage.setItem('listArticles', JSON.stringify(articles));
-            return state;
+            return { ...state, articles };
 
         case 'ALL_ARTICLES':
             state.articles = JSON.parse(localStorage.getItem('listArticles'));

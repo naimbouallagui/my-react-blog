@@ -4,6 +4,7 @@ import Login from '../auth/Login'
 import AllArticles from '../Pages/AllArticles'
 import AddArticle from '../Pages/AddArticle'
 import UpdateArticle from '../Pages/UpdateArticle'
+import DetailsArticle from '../Pages/DetailsArticle';
 
 const allRoutes = [
     {
@@ -21,8 +22,11 @@ const allRoutes = [
     },
     {
         path: "/register", exact: true, component: <Register />, private: false,
+    },
+    {
+        path: "/articles/:id", exact: true, component: <DetailsArticle />, private: false,
     }
-] 
+]
 
 
 
