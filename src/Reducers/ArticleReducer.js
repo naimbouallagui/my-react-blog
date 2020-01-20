@@ -41,6 +41,7 @@ export const ArticleReducer = (state, action) => {
                         title: action.comment.title,
                         comment: action.comment.comment,
                         owner: action.comment.owner,
+                        article: action.comment.article,
                         id: uuid()
                     }
                 ]
@@ -48,13 +49,19 @@ export const ArticleReducer = (state, action) => {
 
             localStorage.setItem('listComments', JSON.stringify(newCommentState.comments))
             return newCommentState;
-            case 'REMOVE_COMMENT':
+        case 'REMOVE_COMMENT':
             // const index = state.comments.map((e) => { return e.id; }).indexOf(action.id);
             // const allComments = [...state.comments]
             // allComments.splice(index, 1);
             const allComments = state.comments.filter(e => e.id !== action.id)
             localStorage.setItem('listComments', JSON.stringify(allComments));
             return { ...state, comments: allComments };
+        case 'UPDATE_COMMENT':
+            const comments = JSON.parse(localStorage.getItem('listComments'));
+            const indexId = comments.map(a => { return a.id }).indexOf(action.comment.id);
+            comments[indexId] = { ...comments[indexId], ...action.comment };
+            localStorage.setItem('listComments', JSON.stringify(comments));
+            return { ...state, comments };
         default:
             return state
     }

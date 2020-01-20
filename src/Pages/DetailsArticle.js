@@ -20,7 +20,7 @@ const DetailsArticle = () => {
             }} />
             <button className="btn btn-sm  btn-outline-secondary mx-2 my-2" onClick={() => history.goBack()}>Back To List</button>
         </div>
-        <CommentArticle />
+        <CommentArticle articleId={id} />
         </>
 
     )
